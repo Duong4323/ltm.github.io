@@ -1,0 +1,7 @@
+$ git config --global user.name "Duong4323"
+$ git config --global user.email nbd432003@gmail.com
+$ git remote add origin https://github.com/Duong4323/ltm.github.io.git
+$ git remote -v
+$ git add .
+$ git commit -m"init project"
+$ git push origin master
