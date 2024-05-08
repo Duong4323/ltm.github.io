@@ -1,0 +1,315 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.classNo1{
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: red;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+}
+
+.classNo2{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.classNo3{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.col-3{
+    width: 33%;
+}
+
+.col-2{
+    width: 50%;
+}
+
+.mrgr-90{
+    margin-right: 90px;
+}
+
+#header img{
+    width: 100vw;
+}
+
+#header .navbar{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    z-index: 1;
+    position: relative;
+}
+
+#header li:hover .subnav{
+    display: block;
+}
+
+#header .navbar>li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 32px;
+    background-color: rgb(240, 240, 240);
+    font-size: 18px;
+    position: relative;
+}
+
+#header .navbar li .file{
+    padding-right: 4px;
+}
+
+#header .navbar li a{
+    line-height: 32px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+#header .navbar>li:hover a,
+#header .subnav>li:hover {
+    background-color: rgb(168, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+#header .subnav{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    text-align: left;
+    list-style: none;
+    display: none;
+}
+
+#header .subnav li{
+    line-height: 36px;
+    padding: 2px;
+    background-color: rgb(240, 240, 240);
+    padding-left: 8px;
+    font-size: 16px;
+}
+
+#header .navbutton{
+    border-left: 3px solid #9C1010;
+    color:#9C1010;
+    padding: 0 4px;
+    background-color: rgb(240, 240, 240);
+    display: inline-block;
+    margin-top: 4px;
+    line-height: 28px;
+}
+
+#header .navbutton:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#content{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+}
+
+#content .menu-content{
+    width: 325px;
+    font-family: arial;
+}
+
+#content .menu-content ul{
+    background-color: #f2f1eb;
+    padding: 16px;
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+#content .menu-content>ul .header-content{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#content .menu-content>ul .header-content a{
+    color:rgb(168, 0, 0);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    
+}
+#content .menu-content>ul .header-content img{
+    object-fit: cover;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 0 8px 0 32px;
+}
+
+#content .menu-content>ul li a{
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: lighter;
+    color: #337ab7;
+    min-width: 200px;
+}
+
+#content .menu-content>ul li .nofti-count{
+    display: inline-block;
+    min-width: 10px;
+    margin-left: 8px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #9C1010;
+    border-radius: 10px;
+}
+
+#content .menu-content>ul li:hover>a{
+    color:rgb(168, 0, 0);
+    background-color: #cbcbcb;
+}
+
+#content .menu-content ul li>ul{
+    display: none;
+}
+
+#content .menu-content>ul li:hover ul{
+    margin: 0;
+}
+
+#content .menu-content>ul li:hover ul{
+    display: inline-block;
+}
+
+
+.main-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content .group{
+    position: relative;
+    width: 80%;
+    margin: 25px 50px 25px 50px;
+}
+
+.main-content .group .header{
+    padding: 16px;
+    padding-bottom: 0;
+}
+
+.group .header div{
+    display: inline-block;
+}
+
+.group .header:first-child{
+    margin-left: 20px;
+}
+
+.group .header:first-child{
+    font-size: 20px!important;
+}
+
+.group .header .control{
+    position: absolute;
+    right: 10px;
+}
+
+.header .control div{
+    padding: 8px;
+    font-size: 16px;
+    padding-bottom: none;
+    margin-left: 10px;
+    background: #9C1010;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+    text-align: center;
+}
+
+.fa-trash-can{
+    cursor: pointer;
+}
+
+.main-content .group .content{
+    border: 4px solid #9C1010;
+    border-top: none;
+    border-radius: 5px;
+    padding: 20px 10px 10px;
+}
+
+.group .content .content-item{
+    padding: 16px;
+    width: 49%;
+    display: inline-block;
+}
+
+.text{
+    width: 49%;
+}
+
+input{
+    padding: 8px 2px;
+}
+
+button{
+    cursor: pointer;
+    background-color: #9C1010;
+    color: white;
+    border: none;
+    border-radius: 2px;
+}
+
+#footer{
+    background-image: url(./img/footer.jpg);
+    height: 100px;
+    width: 100vw;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+#footer span{
+    color: white;
+    position: absolute;
+    right: 60px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#footer span p{
+    margin-top: 20px;
+}
+h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách phía dưới tiêu đề */
+}

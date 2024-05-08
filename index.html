@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thông tin cá nhân</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./icon/themify-icons-font/themify-icons/themify-icons.css">
+        <script src="https://kit.fontawesome.com/4a24fc7d8b.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <h2>
+            THÔNG TIN CÁ NHÂN
+            <a href="#" id="printLink" onclick="window.print(); return false;">
+                <i class="fas fa-print"></i>
+            </a>
+        </h2>
+                
+            <div class="main-content">
+                <div class="group" id = '1'>
+                    <div class="header">
+                        <i class="remove-group-btn fa-solid fa-trash-can" onclick="groupRemove(this)"></i>
+                        <div class="classNo3"> <span class="group-name" ondblclick="changeText(this)">Thông tin sinh viên</span>
+                            _20215557
+                        </div>
+                        
+                        <div class="control">
+                            <div class="add-item-btn" onclick="itemAdd(this)">
+                                Add Info Item
+                            </div>
+    
+                            <div class="add-group-btn" onclick="groupAdd(this)">
+                                Add Group Item
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="content-item">
+                            <span><i class="fa-solid fa-trash-can remove-item-btn" onclick="itemRemove(this)"></i></span>
+
+                            <span class="item-name classNo2 text" ondblclick="changeText(this)">Họ và tên</span>
+                            :
+                            <span class="item-info classNo3 text" ondblclick="changeText(this)">Nguyễn Bình Dương</span>
+                        </div>
+
+                        <div class="content-item">
+                            <span><i class="fa-solid fa-trash-can remove-item-btn" onclick="itemRemove(this)"></i></span>
+
+                            <span class="item-name classNo2 text" ondblclick="changeText(this)">MSSV</span>
+                            :
+                            <span class="item-info classNo3 text" ondblclick="changeText(this)">20215557</span>
+                        </div>
+
+                        <div class="content-item">
+                            <span><i class="fa-solid fa-trash-can remove-item-btn" onclick="itemRemove(this)"></i></span>
+
+                            <span class="item-name classNo2 text" ondblclick="changeText(this)">Chương trình đào tạo</span>
+                            :
+                            <span class="item-info classNo3 text" ondblclick="changeText(this)">Đại học Chính quy</span>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <script>
+            let curr = 1;
+
+            let firstForm = document.querySelector('.header>i');
+            firstForm.remove();
+
+            function groupRemove(group_remover){
+                group_remover = group_remover.parentElement;
+                group_remover = group_remover.parentElement;
+                let decision = confirm("Bạn muốn xóa nhóm thông tin?");
+                if (decision == false) return;
+                group_remover.remove();
+            }
+
+            function groupAdd(add_group){
+                add_group = add_group.parentElement;
+                add_group = add_group.parentElement;
+                add_group = add_group.parentElement;
+                add_group = add_group.parentElement;
+                let tmp = document.createElement('div');
+                tmp.className = 'group';
+                tmp.id = ++curr;
+                tmp.innerHTML='<div class="header"> <i class="remove-group-btn fa-solid fa-trash-can " onclick="groupRemove(this)"></i> <div class="classNo3"> <span class="group-name" ondblclick="changeText(this)">Group_item</span>_20215557 </div> <div class="control"> <div class="add-item-btn" onclick="itemAdd(this)"> Add Info Item </div> <div class="add-group-btn" onclick="groupAdd(this)"> Add Group Item </div> </div> </div> <div class="content"> </div> </div>';
+                add_group.appendChild(tmp);
+            }
+
+            function itemRemove(item_remover){
+                item_remover = item_remover.parentElement;
+                item_remover = item_remover.parentElement;
+                let decision = confirm("Bạn muốn xóa trường thông tin?");
+                if (decision == false) return;
+                item_remover.remove();
+            }
+
+            function itemAdd(add_item){
+    add_item = add_item.parentElement;
+    add_item = add_item.parentElement;
+    add_item = add_item.nextElementSibling;
+    
+    // Hiển thị hộp thoại cho phép người dùng chọn kiểu mục thông tin
+    let type = prompt("Chọn kiểu mục thông tin (text, list, checkbox):");
+    if (!type || !type.trim()) return; // Nếu không chọn hoặc nhập rỗng, không thêm mục thông tin
+    
+    let tmp = document.createElement('div');
+    tmp.className = 'content-item';
+    
+    // Dựa vào kiểu được chọn, tạo một mục thông tin tương ứng
+    if (type.trim().toLowerCase() === 'text') {
+        tmp.innerHTML = '<span><i class="fa-solid fa-trash-can remove-item-btn" onclick="itemRemove(this)"></i></span> <span class="item-name classNo2 text" ondblclick="changeText(this)">Item info name</span> : <span class="item-info classNo3 text" ondblclick="changeText(this)">Item info</span>';
+    } else if (type.trim().toLowerCase() === 'list') {
+        tmp.innerHTML = '<span><i class="fa-solid fa-trash-can remove-item-btn" onclick="itemRemove(this)"></i></span> <span class="item-name classNo2 text" ondblclick="changeText(this)">Item info name</span> : <select class="item-info classNo3 list" onchange="changeList(this)"><option value="option1">Option 1</option><option value="option2">Option 2</option><option value="option3">Option 3</option></select>';
+    } else if (type.trim().toLowerCase() === 'checkbox') {
+        tmp.innerHTML = '<span><i class="fa-solid fa-trash-can remove-item-btn" onclick="itemRemove(this)"></i></span> <span class="item-name classNo2 text" ondblclick="changeText(this)">Item info name</span> : <input type="checkbox" class="item-info classNo3 checkbox">';
+    } else {
+        alert("Kiểu mục thông tin không hợp lệ!");
+        return; // Nếu kiểu không hợp lệ, không thêm mục thông tin
+    }
+    
+    add_item.appendChild(tmp);
+}
+
+// Hàm thay đổi giá trị của mục thông tin kiểu list
+function changeList(list_element) {
+    let selected_option = list_element.options[list_element.selectedIndex].text;
+    list_element.previousElementSibling.textContent = selected_option;
+}
+
+            function changeText(change_text){
+                let tmp = document.createElement('span');
+                tmp.className = change_text.className;
+                let tmpText = change_text.innerHTML;
+                tmp.innerHTML = '<input type="text" value="" > <button onclick="confirmText(this)">OK</button>';
+                change_text.replaceWith(tmp);
+                tmp = tmp.firstChild;
+                tmp.value = tmpText;
+            }
+
+            function confirmText(confirm_text){
+                confirm_text = confirm_text.parentElement;
+                confirm_text = confirm_text.firstChild;
+                confirm_text.value = confirm_text.value.trim();
+                if(confirm_text.value == ''){
+                    alert("Xin vui lòng nhập thông tin!");
+                    return;
+                }
+                let tmpText = confirm_text.value;
+                confirm_text = confirm_text.parentElement;
+                let tmp = document.createElement('span');
+                tmp.className = confirm_text.className;
+                tmp.innerHTML = tmpText;
+                tmp.addEventListener('dblclick', function() {
+                    changeText(this);
+                });
+                confirm_text.replaceWith(tmp);
+                
+            }
+            
+        </script>
+    </body>
+</html>
